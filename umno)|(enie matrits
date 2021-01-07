@@ -1,0 +1,24 @@
+import random
+def zad2(chislo):
+    a = []
+    for i in range(chislo):
+        a.append([])
+        for j in range(chislo):
+            a[i].append(random.randint(0,100))
+    b = []
+    for i in range(chislo):
+        b.append([])
+        for j in range(chislo):
+            b[i].append(random.randint(0,100))
+    t = []
+    c = []
+    K=0
+    for z in range(0, chislo):
+        for j in range(0, chislo):
+            for i in range(0, chislo):
+                K = K + a[z][i] * b[i][j]
+            t.append(K)
+            K = 0
+        c.append(t)
+    return(c) 
+print(zad2(int(input())))
