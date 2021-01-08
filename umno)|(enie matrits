@@ -1,5 +1,8 @@
 import random
+import time
+
 def zad2(chislo):
+    start = time.time()
     a = []
     for i in range(chislo):
         a.append([])
@@ -20,5 +23,11 @@ def zad2(chislo):
             t.append(K)
             K = 0
         c.append(t)
-    return(c) 
-print(zad2(int(input())))
+    end = time.time()
+    end = start - end
+    return(end) 
+
+for x in range(1000, 10000, 1000):
+    print(zad2(x))
+#f = open('xyz.txt','w')
+#f.write() 
