@@ -22,5 +22,9 @@ def zad2(chislo):
     end = time.time()-start
     return(end) 
 for x in range(1000, 10001, 1000):
+    F = str(zad2(x))
     f = open('xyz.txt','a+')
-    f.write(zad2(x)) 
+    f.write(F) 
+    f.write(' ;')
+    f.close()
+print('End')
