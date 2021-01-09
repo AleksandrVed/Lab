@@ -1,0 +1,13 @@
+import math
+from collections import Counter
+
+def file():
+    f = open('ent.txt')
+    stroka = f.read()
+    return(stroka)
+def uniq_count(message):
+    return list(Counter(message).values())
+
+def ent(message):
+    return -sum([e/len(message)*math.log2(e/len(message)) for e in uniq_count(message)])
+print(ent(stroka))
