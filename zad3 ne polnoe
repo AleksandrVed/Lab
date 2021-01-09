@@ -1,0 +1,26 @@
+P = []
+for i in range(int(input())):
+    P.append(int(input()))
+    
+def SMA(P):
+    Summ = 0
+    for i in range(len(P)):
+        Summ += P[i]
+    return(Summ, Summ/len(P))
+    
+def EMA(P):
+    EMA_prev = 0 
+    for key,value in enumerate(P):
+        if key == 0:
+            EMA_prev = value
+        # т.к. массив начинается с 0, то период == ключ + 1
+        period = key + 1;
+        #сглаживающая константа
+        K = 2/(period+1)
+        # Экспоненциальное скользящее среднее произвольного порядка
+        EMA = value*K + EMA_prev*(1-K)
+        EMA_prev = EMA
+    return("Период: %s : %s" % (period,EMA))
+  
+print(SMA(P))
+print(EMA(P))
