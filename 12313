@@ -1,0 +1,30 @@
+import random
+import time
+def umnozhenie(chislo):
+    start = time.time()
+    A = []
+    B = []
+    for i in range(chislo):
+        A.append([])
+        B.append([])
+        for j in range(chislo):
+            A[i].append(random.randint(0, 10))
+            B[i].append(random.randint(0, 10))
+    k=0
+    C = []
+    for f in range(chislo):
+        C.append([])
+        for i in range(chislo):
+            for j in range(chislo):
+                k = k + A[f][i] * B[i][j]
+            C.append(k)
+            k=0
+    end = time.time()-start
+    return end
+for x in range(1000, 10001, 1000):
+    F = str(umnozhenie(x))
+    f = open('file.txt', 'a+')
+    f.write(F)
+    f.write(' ; ')
+    f.close()
+print('End')
