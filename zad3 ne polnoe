@@ -22,19 +22,20 @@ def EMA(P):
         EMA = value*K + EMA_prev*(1-K)
         EMA_prev = EMA
     return("Период: %s : %s" % (period,EMA))
+    
 def med(P):
     wb = openpyxl.load_workbook('data.xlsx')
     sheet = wb.active
-    spisok = []
+    array = []
     for cell in sheet['A']:
-        spisok.append(cell.value)
-    print(spisok)
-    spisok.sort()
-    print(spisok)
-    b = len(spisok)
+        array.append(cell.value)
+    print(array)
+    array.sort()
+    print(array)
+    b = len(array)
     mediana = []
     for i in range(b-1):
-        mediana.append(spisok[i+1])
+        mediana.append(array[i+1])
     print('Median filter =',mediana)
   
 print(SMA(P))
